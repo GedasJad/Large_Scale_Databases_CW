@@ -1,0 +1,61 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.Id3 
+Relation:     contact-lenses
+Instances:    24
+Attributes:   5
+              age
+              spectacle-prescrip
+              astigmatism
+              tear-prod-rate
+              contact-lenses
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Id3
+
+
+tear-prod-rate = reduced: none
+tear-prod-rate = normal
+|  astigmatism = no
+|  |  age = young: soft
+|  |  age = pre-presbyopic: soft
+|  |  age = presbyopic
+|  |  |  spectacle-prescrip = myope: none
+|  |  |  spectacle-prescrip = hypermetrope: soft
+|  astigmatism = yes
+|  |  spectacle-prescrip = myope: hard
+|  |  spectacle-prescrip = hypermetrope
+|  |  |  age = young: hard
+|  |  |  age = pre-presbyopic: none
+|  |  |  age = presbyopic: none
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances          17               70.8333 %
+Incorrectly Classified Instances         7               29.1667 %
+Kappa statistic                          0.4381
+Mean absolute error                      0.1944
+Root mean squared error                  0.441 
+Relative absolute error                 51.4706 %
+Root relative squared error            100.965  %
+Total Number of Instances               24     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.800    0.053    0.800      0.800    0.800      0.747    0.874     0.682     soft
+                 0.250    0.100    0.333      0.250    0.286      0.169    0.575     0.208     hard
+                 0.800    0.444    0.750      0.800    0.774      0.365    0.678     0.725     none
+Weighted Avg.    0.708    0.305    0.691      0.708    0.698      0.412    0.701     0.630     
+
+=== Confusion Matrix ===
+
+  a  b  c   <-- classified as
+  4  0  1 |  a = soft
+  0  1  3 |  b = hard
+  1  2 12 |  c = none
